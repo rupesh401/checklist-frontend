@@ -4,6 +4,7 @@ import "./App.css";
 
 function App() {
   const [formData, setFormData] = useState({
+    btNumber: "",
     forkliftCondition: false,
     hornWorking: false,
     brakesWorking: false,
@@ -27,10 +28,11 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { supervisorName, shift, comments, ...checklist } = formData;
+    const { btNumber, supervisorName, shift, comments, ...checklist } = formData;
 
     try {
       await axios.post(`${process.env.REACT_APP_API_URL}/api/send`, {
+        btNumber,
   supervisorName,
   shift,
   checklist,
@@ -38,6 +40,19 @@ function App() {
 });
 
       alert("Checklist submitted successfully!");
+      setFormData({
+        btNumber: "",
+        forkliftCondition: false,
+        hornWorking: false,
+        brakesWorking: false,
+        seatbeltFunctional: false,
+        lightsFunctional: false,
+        fluidLeaks: false,
+        tireCondition: false,
+        supervisorName: "",
+        shift: "",
+        comments: "",
+      });
     } catch (err) {
       console.error(err);
       alert("Error submitting checklist");
@@ -52,6 +67,19 @@ function App() {
 
       <form onSubmit={handleSubmit}>
         <div className="dropdowns">
+    <div>
+            <label htmlFor="btNumber">
+              <strong>BT Number:</strong>
+            </label>
+            <input
+              type="text"
+              name="btNumber"
+              value={formData.btNumber}
+              onChange={handleChange}
+              placeholder="Enter BT Number"
+              required
+            />
+          </div>
           <div>
             <label htmlFor="supervisorName">
               <strong>Supervisor Name:</strong>
