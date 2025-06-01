@@ -1,38 +1,172 @@
-.App {
+/* Reset styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Page container */
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  color: #2e2e2e;
+}
+
+/* Company logo */
+.logo {
+  display: block;
+  max-width: 160px;
+  margin: 0 auto 20px;
+}
+
+/* Title */
+h1 {
   text-align: center;
+  color: #2c5f2d;
+  font-size: 2rem;
+  margin-bottom: 8px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Subtitle */
+.subtitle {
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 25px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Checklist container */
+.checklist {
   display: flex;
   flex-direction: column;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+/* Individual checklist item */
+.checklist-item {
+  background: #f3f8f3;
+  padding: 14px 18px;
+  border-radius: 8px;
+  border: 1px solid #d9e7d8;
+  font-size: 1.05rem;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.checklist-item:hover {
+  background: #e0f3e0;
+}
+
+.checklist-item input[type="checkbox"] {
+  margin-right: 15px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* Comments section */
+.comments-label {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  display: block;
+}
+
+textarea {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 12px 14px;
+  font-size: 1rem;
+  resize: vertical;
+  margin-bottom: 25px;
+  transition: border 0.2s ease-in-out;
+}
+
+textarea:focus {
+  border-color: #3fa34d;
+  outline: none;
+}
+
+/* Submit button */
+button[type="submit"] {
+  background-color: #3fa34d;
   color: white;
+  font-size: 1.1rem;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+button[type="submit"]:hover {
+  background-color: #347c3c;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+button[type="submit"]:disabled {
+  background-color: #a3d7a5;
+  cursor: not-allowed;
+}
+
+/* Dropdown styling */
+.dropdowns {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.dropdowns div {
+  flex: 1;
+  min-width: 200px;
+}
+
+.dropdowns label {
+  display: block;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.dropdowns select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background: #f9f9f9;
+}
+
+
+/* Responsive layout */
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
   }
-  to {
-    transform: rotate(360deg);
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .checklist-item {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  textarea {
+    font-size: 0.95rem;
+  }
+
+  button[type="submit"] {
+    font-size: 1rem;
   }
 }
