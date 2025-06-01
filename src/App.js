@@ -30,12 +30,13 @@ function App() {
     const { supervisorName, shift, comments, ...checklist } = formData;
 
     try {
-      await axios.post("http://localhost:5000/api/send", {
-        supervisorName,
-        shift,
-        checklist,
-        comments,
-      });
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/send`, {
+  supervisorName,
+  shift,
+  checklist,
+  comments,
+});
+
       alert("Checklist submitted successfully!");
     } catch (err) {
       console.error(err);
