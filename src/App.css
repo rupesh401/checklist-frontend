@@ -96,6 +96,16 @@ textarea:focus {
   outline: none;
 }
 
+.dropdowns input[type="text"] {
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 /* Submit button */
 button[type="submit"] {
   background-color: #3fa34d;
